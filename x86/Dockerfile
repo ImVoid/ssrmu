@@ -40,7 +40,6 @@ RUN  apk --no-cache add \
                         build-base \
                         linux-headers         && \
      ln -s /usr/bin/python3 /usr/bin/python   && \
-     ln -s /usr/bin/pip3    /usr/bin/pip3      && \
      git clone -b manyuser https://github.com/SakuraSa233/shadowsocks.git "/root/shadowsocks" --depth 1 && \
      cd  /root/shadowsocks                    && \
      pip3 install -r requirements.txt          && \
