@@ -5,20 +5,45 @@
 - `arm32v6`
 
 ## 支持的环境变量
-- NODE_ID=0
-- SPEEDTEST=6
-- CLOUDSAFE=0
-- AUTOEXEC=0
-- ANTISSATTACK=0
-- MU_SUFFIX=zhaoj.in
-- MU_REGEX=%5m%id.%suffix
-- API_INTERFACE=modwebapi
-- WEBAPI_URL=https://zhaoj.in
-- WEBAPI_TOKEN=glzjin
-- MYSQL_HOST=127.0.0.1
-- MYSQL_PORT=3306
-- MYSQL_USER=ss
-- MYSQL_PASS=ss
-- MYSQL_DB=shadowsocks
-- REDIRECT=github.com
-- FAST_OPEN=false
+- `NODE_ID`
+- `SPEEDTEST`
+- `CLOUDSAFE`
+- `AUTOEXEC`
+- `ANTISSATTACK`
+- `MU_SUFFIX`
+- `MU_REGEX`
+- `API_INTERFACE`
+- `WEBAPI_URL`
+- `WEBAPI_TOKEN`
+- `MYSQL_HOST`
+- `MYSQL_PORT`
+- `MYSQL_USER`
+- `MYSQL_PASS`
+- `MYSQL_DB`
+- `REDIRECT`
+- `FAST_OPEN`
+
+## docker-compose demo
+```
+version: "3"
+
+services:
+  ssrmu:
+    container_name: ssrmu
+    hostname: ssrmu
+    image: liuweijian/ssrmu:x86
+    network_mode: "host"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+    environment:
+      - NODE_ID=10
+      - API_INTERFACE=glzjinmod
+      - MYSQL_HOST=xxx
+      - MYSQL_USER=xx
+      - MYSQL_DB=xxx
+      - MYSQL_PASS=xxx
+```
