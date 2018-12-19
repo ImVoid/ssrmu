@@ -19,6 +19,7 @@ ENV NODE_ID=0                     \
     REDIRECT=github.com           \
     FAST_OPEN=false
 
+RUN apk add -U tzdata
 RUN  apk --no-cache add \
                         curl \
                         python3-dev \
@@ -34,7 +35,6 @@ RUN  apk --no-cache add \
                         git \
                         tar \
                         make \
-                        dzdata \
                         py3-pip \
                         autoconf \
                         automake \
@@ -48,7 +48,7 @@ RUN  apk --no-cache add \
      cd  /root/shadowsocks                    && \
      pip install -r requirements.txt          && \
      rm -rf ~/.cache && touch /etc/hosts.deny && \
-     apk del --purge .build-deps
+     apk del --purge .build-deps tzdata
 
 WORKDIR /root/shadowsocks
 
