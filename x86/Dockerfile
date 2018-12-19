@@ -34,11 +34,13 @@ RUN  apk --no-cache add \
                         git \
                         tar \
                         make \
+                        dzdata \
                         py3-pip \
                         autoconf \
                         automake \
                         build-base \
                         linux-headers         && \
+     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
      ln -s /usr/bin/python3 /usr/bin/python   && \
      ln -s /usr/bin/pip3    /usr/bin/pip      && \
      pip install --upgrade pip                && \
