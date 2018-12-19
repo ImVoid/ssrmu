@@ -39,16 +39,17 @@ RUN  apk --no-cache add \
                         autoconf \
                         automake \
                         build-base \
-                        linux-headers         && \
-     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+                        linux-headers
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
      ln -s /usr/bin/python3 /usr/bin/python   && \
      ln -s /usr/bin/pip3    /usr/bin/pip      && \
      pip install --upgrade pip                && \
      git clone -b manyuser https://github.com/SakuraSa233/shadowsocks.git "/root/shadowsocks" --depth 1 && \
      cd  /root/shadowsocks                    && \
      pip install -r requirements.txt          && \
-     rm -rf ~/.cache && touch /etc/hosts.deny && \
-     apk del --purge .build-deps
+     rm -rf ~/.cache && touch /etc/hosts.deny
+
+RUN apk del --purge .build-deps
 
 WORKDIR /root/shadowsocks
 
